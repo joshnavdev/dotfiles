@@ -84,3 +84,4 @@ nvim_lsp.cssls.setup {
 
 -- Tailwind
 nvim_lsp.tailwindcss.setup {}
+

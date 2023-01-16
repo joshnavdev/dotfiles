@@ -1,11 +1,11 @@
-local status, themer = pcall(require, 'themer')
+local status, themer = pcall(require, "themer")
 if (not status) then return end
 
 themer.setup({
   transparent = false,
   styles = {
-    comment = { style = 'italic' },
-    keyword = { style = 'italic,bold' },
+    comment = { style = "italic" },
+    keyword = { style = "italic,bold" },
   },
   enable_installer = true,
 })
