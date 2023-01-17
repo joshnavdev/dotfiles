@@ -70,6 +70,8 @@ M.plugins_init = function(packer_bootstrap)
 
     use {
       "akinsho/nvim-bufferline.lua", -- tabs
+      tag = "v3.*",
+      requires = "kyazdani42/nvim-web-devicons",
       config = function ()
         require "plugins.config.bufferline"
       end,
@@ -192,6 +194,13 @@ M.plugins_init = function(packer_bootstrap)
 
     if packer_bootstrap then
       require("packer").sync()
+
+      vim.api.nvim_create_autocmd("User", {
+        pattern = "PackerComplete",
+        callback = function ()
+          print('Packer has been complete')
+        end
+      })
     end
   end
 end
