@@ -16,39 +16,39 @@ bufferline.setup({
     show_close_icon = false,
     color_icons = true,
   },
-  highlights = {
-    background = {
-      bg = colors.no_solected[1],
-      fg = colors.no_solected[2],
-    },
-    fill = {
-      bg = colors.black,
-    },
-    buffer_selected = {
-      bg = colors.selected[1],
-      fg = colors.selected[2],
-      italic = false
-    },
-    duplicate = {
-      bg = colors.no_solected[1],
-      fg = colors.no_solected[2],
-    },
-    duplicate_selected = {
-      bg = colors.selected[1],
-      fg = colors.selected[2],
-    },
-    separator = {
-      bg = colors.no_solected[1],
-      fg = colors.black,
-    },
-    separator_selected = {
-      bg = colors.selected[1],
-      fg = colors.black,
-    },
-    modified_selected = {
-      bg = colors.selected[1],
-    }
-  }
+  -- highlights = {
+  --   background = {
+  --     bg = colors.no_solected[1],
+  --     fg = colors.no_solected[2],
+  --   },
+  --   fill = {
+  --     bg = colors.black,
+  --   },
+  --   buffer_selected = {
+  --     bg = colors.selected[1],
+  --     fg = colors.selected[2],
+  --     italic = false
+  --   },
+  --   duplicate = {
+  --     bg = colors.no_solected[1],
+  --     fg = colors.no_solected[2],
+  --   },
+  --   duplicate_selected = {
+  --     bg = colors.selected[1],
+  --     fg = colors.selected[2],
+  --   },
+  --   separator = {
+  --     bg = colors.no_solected[1],
+  --     fg = colors.black,
+  --   },
+  --   separator_selected = {
+  --     bg = colors.selected[1],
+  --     fg = colors.black,
+  --   },
+  --   modified_selected = {
+  --     bg = colors.selected[1],
+  --   }
+  -- }
 })
 
 vim.keymap.set('n', '<Tab>', '<Cmd>BufferLineCycleNext<CR>', {})
