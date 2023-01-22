@@ -66,4 +66,5 @@ if fn.empty(fn.glob(nightfox_themer_path)) > 0 then
   themer_installer_utils.install(nightfox_theme)
 else
   cmd [[colorscheme nordfox]]
+  cmd [[colorscheme nordfox]]
 end

@@ -11,13 +11,9 @@ M.plugins_init = function(packer_bootstrap)
       end,
     }
 
-
     use {
       "nvim-treesitter/nvim-treesitter", -- highlights
       module = "nvim-treesitter",
-      setup = function ()
-        require("core.lazy_load").on_file_open "nvim-treesitter"
-      end,
       cmd = { "TSInstall", "TSBufEnable", "TSBufDisable", "TSEnable", "TSDisable", "TSModuleInfo" },
       run = ":TSUpdate",
       config = function ()
@@ -84,6 +80,13 @@ M.plugins_init = function(packer_bootstrap)
       end,
     }
 
+    use {
+      "lukas-reineke/indent-blankline.nvim",
+      config = function ()
+        require "plugins.config.indent-blankline"
+      end
+    }
+
     -- LSP configuration and more
     use { "hrsh7th/cmp-nvim-lsp" } -- LSP source for nvim-cmp
 
@@ -146,13 +149,13 @@ M.plugins_init = function(packer_bootstrap)
     }
 
 
-    use {
-      "MunifTanjim/prettier.nvim", -- prettier formatting
-      config = function ()
-        -- TODO: Validate prettier installation
-        require "plugins.config.prettier"
-      end,
-    }
+    -- use {
+    --   "MunifTanjim/prettier.nvim", -- prettier formatting
+    --   config = function ()
+    --     -- TODO: Validate prettier installation
+    --     require "plugins.config.prettier"
+    --   end,
+    -- }
 
 
     use {
