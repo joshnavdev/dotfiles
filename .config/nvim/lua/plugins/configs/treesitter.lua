@@ -17,7 +17,7 @@ return {
     for _, folder in ipairs(folders) do
       if not string.find(folder, "nvim%-treesitter") then
         print("Removing..." .. folder)
-        os.execute("rm --recursive " .. folder)
+        os.execute("rm -rf " .. folder)
       end
     end
 
