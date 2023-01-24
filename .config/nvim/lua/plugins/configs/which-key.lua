@@ -22,7 +22,7 @@ return {
       ["<leader>x"] = { name = "+diagnostics/quickfix" },
       ["<leader>f"] = { name = "+find" },
       ["<leader>g"] = { name = "+git" },
-      ["<leader>p"] = { name = "+plenary" },
+      ["<leader>p"] = { name = "+plenary & persistence" },
       ["<C-s>"] = { name = "+split" },
     })
   end
