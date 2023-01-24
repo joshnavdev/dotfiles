@@ -10,5 +10,5 @@ if IS_WIN == 1 then
   require "windows"
 end
 
-require "plugins"
 require "maps"
+require "plugins"
