@@ -6,7 +6,22 @@ return {
       { "[g", "<cmd>Lspsaga diagnostic_jump_prev<CR>", desc = "LSP Prev Diagnostic" },
       { "K", "<cmd>Lspsaga hover_doc<CR>", desc = "LSP Open Hover Docs" },
       { "gd", "<cmd>Lspsaga lsp_finder<CR>", desc = "LSP Go To Finders" },
+      { "gD", "<cmd>Lspsaga goto_definition<CR>", desc = "LSP Go To Definition" },
       { "gr", "<cmd>Lspsaga rename<CR>", desc = "LSP Rename" },
+      {
+        "]G",
+        function ()
+          require("lspsaga.diagnostic"):goto_next({ severity = vim.diagnostic.severity.ERROR })
+        end,
+        desc = "LSP Next Error Diagnostic"
+      },
+      {
+        "[G",
+        function ()
+          require("lspsaga.diagnostic"):goto_prev({ severity = vim.diagnostic.severity.ERROR })
+        end,
+        desc = "LSP Prev Error Diagnostic"
+      },
     },
     opts = {
       finder = {
@@ -34,4 +49,10 @@ return {
         kind = {},
     },
   },
+  config = function (_, opts)
+    -- vim.cmd[[colorscheme catppuccin-frappe]]
+    vim.cmd[[hi! default link SagaBorder NormalFloat]]
+    vim.cmd[[hi! default link SagaNormal NormalFloat]]
+    require("lspsaga").setup(opts)
+  end
 }

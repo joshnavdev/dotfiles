@@ -27,9 +27,9 @@ return {
         mapping = cmp.mapping.preset.insert({
           ["<C-b>"] = cmp.mapping.scroll_docs(-4),
           ["<C-f>"] = cmp.mapping.scroll_docs(4),
-          ["<C-Spac>"] = cmp.mapping.complete(),
-          ["<C-e>"] = cmp.mapping.close(), -- TODO: change to abort to test
-          ["<CR>"] = cmp.mapping.confirm({ select = true }), -- TODO: add behavior after test
+          ["<C-Space>"] = cmp.mapping.complete(),
+          ["<C-e>"] = cmp.mapping.abort(),
+          ["<CR>"] = cmp.mapping.confirm({ select = true }),
           ['<Tab>'] = cmp.mapping(function(fallback)
             if cmp.visible() then
               cmp.select_next_item()

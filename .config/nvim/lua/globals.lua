@@ -11,5 +11,5 @@ end
 IS_MAC = HAS "macunix"
 IS_WIN = HAS "win32"
 
-DEFAULT_LIGHT_THEME = "dayfox"
-DEFAULT_DARK_THEME = "themer_darknight"
+DEFAULT_LIGHT_THEME = "nordfox"
+DEFAULT_DARK_THEME = "nordfox"
