@@ -4,7 +4,7 @@ return {
     { ",ti", "<Cmd>exe v:count1 . \"ToggleTerm direction=vertical\"<CR>", desc = "Toggle Term Vertical" },
     { ",tx", "<Cmd>exe v:count1 . \"ToggleTerm direction=horizontal\"<CR>", desc = "Toggle Term Horizontal" },
     { ",tf", "<Cmd>exe v:count1 . \"ToggleTerm direction=float\"<CR>", desc = "Toggle Term Float" },
-    { ",t", "<Cmd> ToggleTerm<CR>", mode = { "t" }, desc = "Toggle Term" },
+    { ",t", "<Cmd>ToggleTerm<CR>", mode = { "t" }, desc = "Toggle Term" },
   },
   opts = {
     size = function (term)
