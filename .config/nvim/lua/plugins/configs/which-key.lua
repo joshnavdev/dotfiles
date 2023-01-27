@@ -16,13 +16,14 @@ return {
       ["]"] = { name = "+next" },
       ["["] = { name = "+prev" },
       ["<leader>s"] = { name = "+search" },
-      ["<leader>t"] = { name = "+tabs" },
+      [",t"] = { name = "+terminal" },
       ["<leader>sn"] = { name = "+noice" },
       ["<leader>u"] = { name = "+ui" },
       ["<leader>x"] = { name = "+diagnostics/quickfix" },
       ["<leader>f"] = { name = "+find" },
       ["<leader>g"] = { name = "+git" },
       ["<leader>p"] = { name = "+plenary & persistence" },
+      ["<leader>t"] = { name = "+tabs" },
       ["<C-s>"] = { name = "+split" },
     })
   end

@@ -50,9 +50,9 @@ return {
     },
   },
   config = function (_, opts)
-    -- vim.cmd[[colorscheme catppuccin-frappe]]
     vim.cmd[[hi! default link SagaBorder NormalFloat]]
     vim.cmd[[hi! default link SagaNormal NormalFloat]]
+
     require("lspsaga").setup(opts)
   end
 }
