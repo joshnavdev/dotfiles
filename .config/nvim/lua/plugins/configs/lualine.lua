@@ -1,3 +1,7 @@
+local function maximize_status()
+  return vim.t.maximized and '' or ''
+end
+
 return {
   "nvim-lualine/lualine.nvim",
   event = "VeryLazy",
@@ -12,6 +16,7 @@ return {
       lualine_a = { "mode" },
       lualine_b = { "branch" },
       lualine_c = {
+        { maximize_status },
         {
           "filename",
           file_status = true, -- displays file status (readonly status, modified status)
