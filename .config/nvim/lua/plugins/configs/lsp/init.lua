@@ -11,7 +11,7 @@ return {
     config = function ()
       local nvim_lsp = require("lspconfig")
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
-      local servers_config = require "plugins.configs.lsp.servers"
+      local servers_config = require("plugins.configs.lsp.servers").get_servers_config(nvim_lsp)
 
       for server_name, server_opts in pairs(servers_config) do
         server_opts.capabilities = capabilities
