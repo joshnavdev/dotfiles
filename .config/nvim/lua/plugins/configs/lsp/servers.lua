@@ -49,7 +49,12 @@ return {
       },
       ["denols"] = {
         root_dir = nvim_lsp.util.root_pattern("deno.json", "deno.jsonc"),
-      }
+      },
+      ["gopls"] = {
+        cmd = {"gopls", "serve"},
+        filetypes = {"go", "gomod"},
+        root_dir = nvim_lsp.util.root_pattern("go.work", "go.mod", ".git"),
+      },
     }
   end,
 }
