@@ -18,7 +18,7 @@ return {
     vim.g.neo_tree_remove_legacy_commands = 1
   end,
   opts = {
-    close_if_last_window = true,
+    close_if_last_window = false,
     window = {
       mappings = {
         ["i"] = "open_vsplit",

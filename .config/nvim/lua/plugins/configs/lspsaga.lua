@@ -25,8 +25,10 @@ return {
     },
     opts = {
       finder = {
-        vsplit = "i",
-        split = "x",
+        keys = {
+          vsplit = "i",
+          split = "x",
+        },
       },
       diagnostic = {
         show_code_action = false,
