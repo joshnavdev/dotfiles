@@ -8,7 +8,7 @@ return {
         root_dir = nvim_lsp.util.root_pattern("package.json"),
         single_file_support = false,
       },
-      ["sumneko_lua"] = {
+      ["lua_ls"] = {
         settings = {
           Lua = {
             runtime = {
