@@ -14,6 +14,11 @@ return {
     { "<leader>e", "<leader>fe", desc = "Explorer NeoTree (root dir)", remap = true },
     { "<leader>E", "<leader>fE", desc = "Explorer NeoTree (cwd)", remap = true },
   },
+  dependencies = {
+    "nvim-lua/plenary.nvim",
+    "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+    "MunifTanjim/nui.nvim",
+  },
   init = function ()
     vim.g.neo_tree_remove_legacy_commands = 1
   end,
