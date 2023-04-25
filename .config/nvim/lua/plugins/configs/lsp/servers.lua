@@ -1,5 +1,16 @@
-local schemas = require("schemastore").json.schemas()
-
+local schemastore = require "schemastore"
+local json_schemas = schemastore.json.schemas()
+local yaml_schemas = vim.list_extend(
+  {
+    {
+      description = 'Kubernetes Schema',
+      fileMatch = { '*.k8s.yaml', '*.k8s.yml' },
+      name = "k8s.json",
+      url = "https://raw.githubusercontent.com/instrumenta/kubernetes-json-schema/master/v1.18.0-standalone-strict/all.json",
+    },
+  },
+  schemastore.yaml.schemas()
+)
 
 return {
   get_servers_config = function (nvim_lsp)
@@ -29,7 +40,7 @@ return {
       ["jsonls"] = {
         settings = {
           json = {
-            schemas = schemas,
+            schemas = json_schemas,
             validate = { enable = true },
           },
         },
@@ -37,14 +48,14 @@ return {
       ["yamlls"] = {
         settings = {
           yaml = {
-            schemas = schemas,
+            schemas = yaml_schemas,
           }
         }
       },
       ["cssls"] = {},
       ["tailwindcss"] = {
         filetypes = {
-          "haml", "handlebars", "hbs", "html", "html-eex", "heex", "jade", "leaf", "liquid", "twig", "css", "less", "postcss", "sass", "scss", "stylus",
+          "haml", "handlebars", "hbs", "html", "html-eex", "heex", "jade", "leaf", "liquid", "twig", "css", "less", "postcss", "sass", "scss", "stylus", "typescriptreact", "typescript"
         }
       },
       ["denols"] = {
@@ -55,6 +66,7 @@ return {
         filetypes = {"go", "gomod"},
         root_dir = nvim_lsp.util.root_pattern("go.work", "go.mod", ".git"),
       },
+      ["java_language_server"] = {},
     }
   end,
 }
