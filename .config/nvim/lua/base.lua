@@ -50,3 +50,8 @@ vim.wo.colorcolumn = "120"
 -- astro config
 vim.cmd[[au BufReadPost,BufNewFile *.astro setfiletype astro]]
 -- vim.cmd[[set term=xterm-256color]]
+
+-- deno
+vim.g.markdown_fenced_languages = {
+  "ts=typescript"
+}

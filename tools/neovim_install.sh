@@ -1,11 +1,23 @@
 #!/bin/sh
-echo "NeoVim Installation"
+
+if [ "$#" -ne 1 ]; then
+  echo "Error: give the version as a argument"
+  exit 1
+fi
+
+version="realse-$1"
+
+
+echo "NeoVim Installation with version $version"
 
 if [ -x "$(command -v nvim)" ]; then
   echo 'NeoVim is already installed.'
 else
+  sudo apt-get install ninja-build gettext cmake unzip curl
   mkdir -p $HOME/_neovim
-  curl -sL https://github.com/neovim/neovim/releases/download/v0.8.1/nvim-linux64.tar.gz | tar xzf - --strip-components=1 -C "${HOME}/_neovim"
-  echo "PATH=\"${HOME}/_neovim/bin:${PATH}\"" >> "$(pwd)/.zshrc"
+  git clone https://github.com/neovim/neovim $HOME/_neovim
+  cd $HOME/_neovim && make CMAKE_BUILD_TYPE=RelWithDebInfo
+  git checkout $version
+  sudo make install
 fi
 
