@@ -10,7 +10,7 @@ if IS_WIN == 1 then
   require "windows"
 end
 
-if IS_LIN == 1 then
+if IS_LIN == 1 and IS_MAC == 0 then
   require "linux"
 end
 
