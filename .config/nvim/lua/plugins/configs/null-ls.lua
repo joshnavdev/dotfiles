@@ -71,7 +71,7 @@ return {
     opts = {
       bin = "prettier",
       filetypes = {
-        "css",
+        -- "css",
         "graphql",
         "html",
         "javascript",
@@ -79,7 +79,7 @@ return {
         "json",
         "less",
         "markdown",
-        "scss",
+        -- "scss",
         "typescript",
         "typescriptreact",
         "yaml",
