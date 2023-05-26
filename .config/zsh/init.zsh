@@ -11,6 +11,8 @@ function fd() {
   preview="git diff $@ --color=always -- {-1}"
   git diff $@ --name-only | fzf -m --ansi --preview $preview
 }
+
+alias tmuxf="tmuxifier"
 # Kubectl
 # [ -f $ZSH_CUSTOM/.kubectl_aliases ] && source $ZSH_CUSTOM/.kubectl_aliases
 # function kubectl() { echo "+ kubectl $@">&2; command kubectl $@; }
