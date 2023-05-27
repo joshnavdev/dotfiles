@@ -6,7 +6,7 @@ window_root "~/workplace/work/disney/anet-messaging-ui/"
 # layout file name.
 new_window "messaging-ui"
 run_cmd "nvim"
-split_v 25
+split_v 20
 run_cmd "npm run start"
 split_h 50
 select_pane 0
