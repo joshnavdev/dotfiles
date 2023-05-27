@@ -47,8 +47,14 @@ vim.opt.formatoptions:append { 'r' }
 -- Own config
 vim.wo.colorcolumn = "120"
 
--- astro config
+-- filetype config
 vim.cmd[[au BufReadPost,BufNewFile *.astro setfiletype astro]]
+vim.api.nvim_create_autocmd({"BufReadPost", "BufNewFile"}, {
+  pattern = {"*.tmux.conf"},
+  callback = function ()
+    vim.bo.filetype = "tmux"
+  end,
+})
 -- vim.cmd[[set term=xterm-256color]]
 
 -- deno
