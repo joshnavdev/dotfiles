@@ -10,8 +10,10 @@ USER myuser
 
 RUN echo "carlospunk" | sudo -S apt-get install git --yes >> /dev/null
 
-WORKDIR /home/myuser
+# WORKDIR /home/myuser
 
-RUN git clone https://github.com/joshnavdev/dotfiles.git
+# RUN git clone https://github.com/joshnavdev/dotfiles.git
 
 WORKDIR /home/myuser/dotfiles
+COPY --chown=myuser:myuser . .
+RUN rm -rf .zshrc

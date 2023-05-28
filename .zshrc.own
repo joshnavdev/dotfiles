@@ -3,7 +3,9 @@ WORKPLACE="$HOME/workplace"
 DOTFILES="$WORKPLACE/projects/dotfiles"
 XDG_CONFIG_HOME="$DOTFILES/.config"
 ZSH_CUSTOM="$XDG_CONFIG_HOME/zsh"
+export TMUXIFIER_LAYOUT_PATH="$XDG_CONFIG_HOME/tmux/layouts"
 
+source $ZSH_CUSTOM/init.zsh
 source $HOME/antigen.zsh
 
 # Antigen
@@ -12,6 +14,7 @@ antigen use oh-my-zsh
 antigen bundle git
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-syntax-highlighting
+# antigen bundle deno
 
 antigen apply
 
@@ -22,3 +25,25 @@ eval "$(starship init zsh)"
 NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# eval "$(rbenv init - zsh)"
+
+source /Users/joshua.navarro/.docker/init-zsh.sh || true # Added by Docker Desktop
+export GOPATH=$WORKPLACE/goworkplace
+
+# JAVA Setup With MAVEN
+JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk-11.jdk/Contents/Home"
+# JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_361.jdk/Contents/Home"
+# JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk-20.jdk/Contents/Home"
+PATH="${JAVA_HOME}/bin:${PATH}"
+
+export M2_HOME=/Users/joshua.navarro/apache-maven-3.9.0
+PATH="${M2_HOME}/bin:${PATH}"
+
+# TMUX
+PATH="$HOME/.tmuxifier/bin:$PATH"
+export EDITOR="nvim"
+eval "$(tmuxifier init -)"
+
+export PATH
+export HOMEBREW_NO_AUTO_UPDATE=1
+export WORKPLACE

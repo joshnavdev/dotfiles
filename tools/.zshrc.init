@@ -1,6 +1,7 @@
 XDG_CONFIG_HOME="$DOTFILES/.config"
 ZSH_CUSTOM="$XDG_CONFIG_HOME/zsh"
 
+source $ZSH_CUSTOM/init.zsh
 source $HOME/antigen.zsh
 
 # Antigen
