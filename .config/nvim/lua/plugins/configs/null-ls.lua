@@ -13,9 +13,22 @@ end
 
 return {
   {
+    "jay-babu/mason-null-ls.nvim",
+    event = { "BufReadPre", "BufNewFile" },
+    dependencies = {
+      "williamboman/mason.nvim",
+      "jose-elias-alvarez/null-ls.nvim",
+    },
+    opts = {
+      ensure_installed = nil,
+      automatic_installation = true,
+    },
+  },
+  {
     "jose-elias-alvarez/null-ls.nvim",
     event = "BufReadPre",
     dependencies = { "mason.nvim" },
+    config = true,
     opts = function ()
       local null_ls = require "null-ls"
 
