@@ -7,8 +7,9 @@ window_root "~/workplace/work/disney/anet-messaging-ui/"
 new_window "messaging-ui"
 run_cmd "nvim"
 split_v 20
-run_cmd "npm run start"
+run_cmd "npm run watch"
 split_h 50
+run_cmd "npm run dev:server"
 select_pane 0
 
 # Split window into panes.
