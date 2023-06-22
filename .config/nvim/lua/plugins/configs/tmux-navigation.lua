@@ -1,6 +1,6 @@
 return {
   "alexghergh/nvim-tmux-navigation",
-  event = "BufReadPost",
+  event = "VeryLazy",
   opts = {
     disable_when_zoomed = true,
     keybindings = {

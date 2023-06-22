@@ -66,7 +66,6 @@ return {
         filetypes = {"go", "gomod"},
         root_dir = nvim_lsp.util.root_pattern("go.work", "go.mod", ".git"),
       },
-      -- ["jdtls"] = {},
     }
   end,
 }
