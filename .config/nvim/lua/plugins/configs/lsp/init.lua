@@ -7,6 +7,7 @@ return {
       "williamboman/mason-lspconfig.nvim",
       "hrsh7th/cmp-nvim-lsp",
       "b0o/SchemaStore.nvim",
+      "folke/neodev.nvim",
     },
     config = function ()
       local nvim_lsp = require("lspconfig")
