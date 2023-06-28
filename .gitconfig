@@ -21,8 +21,9 @@
 [alias]
   a = "!git status --short | peco | awk '{print $2}' | xargs git add"
   d = diff
-  dd = "!git diff --name-only | fzf -m --ansi --preview 'git diff -- {-1} | git-split-diffs --color' --preview-window up,50"
-  rr = "!git dd | xargs -I {} git restore {}"
+  sd = "!git ls-files -o -m --exclude-standard | fzf -m --ansi --preview 'git diff -- {-1} | git-split-diffs --color' --preview-window up,50"
+  sdr = "!git sd | xargs -I {} git restore {}"
+  sda = "!git sd | xargs -I {} git add {}"
   co = checkout
   ci = commit
   ca = commit -a
