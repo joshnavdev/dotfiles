@@ -40,7 +40,6 @@ return {
     priority = 1000,
     config = function ()
       set_colorscheme()
-    end
-
-  }
+    end,
+  },
 }
