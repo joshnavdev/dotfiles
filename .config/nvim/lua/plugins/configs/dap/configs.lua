@@ -1,3 +1,5 @@
+local utils_table = require("utils.table")
+
 local js_or_ts = {
   {
     type = "node2",
@@ -41,12 +43,13 @@ local chrome_debugger = {
   },
 }
 
+local js_or_ts_chrome = utils_table.merge(js_or_ts, chrome_debugger)
+
 return {
   setup = function (dap)
     dap.configurations = {
       -- javascript = js_or_ts,
-      -- TODO: Merge js_or_ts and Chrome
-      javascript =  chrome_debugger,
+      javascript =  js_or_ts_chrome,
       typescript = js_or_ts,
       javascriptreact = chrome_debugger,
       vue = chrome_debugger,

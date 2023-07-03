@@ -14,6 +14,7 @@ return {
     { "<leader>to", function() require("neotest").output.open({ enter = true, auto_close = true }) end, desc = "Show Output" },
     { "<leader>tO", function() require("neotest").output_panel.toggle() end, desc = "Toggle Output Panel" },
     { "<leader>tS", function() require("neotest").run.stop() end, desc = "Stop" },
+    { "<leader>tc", function() require("neotest").run.run({vim.fn.expand("%"), strategy = "dap"}) end, desc = "Run File Debugger" },
   },
   config = function ()
     require("neotest").setup({

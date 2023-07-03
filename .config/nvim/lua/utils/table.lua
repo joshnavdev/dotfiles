@@ -1,15 +1,21 @@
 local M = {}
 
-M.merge = function (t1, t2)
-  local table_merged = {}
-  
-  for k,v in pairs(t2) do t1[k] = v end
+M.clone = function (tb)
+  return {table.unpack(tb)}
 end
 
-local t1 = {{"joshua"}}
-local t2 = {{"navarro"}}
-P(M.merge(t1,t2))
-P(t1)
-P(t2)
+M.merge = function (t1, t2)
+  local table_merged = {}
+
+  for _,v in pairs(t1) do
+    table.insert(table_merged, v)
+  end
+
+  for _, v in pairs(t2) do
+    table.insert(table_merged, v)
+  end
+
+  return table_merged
+end
 
 return M
