@@ -55,7 +55,7 @@ return {
       ["cssls"] = {},
       ["tailwindcss"] = {
         filetypes = {
-          "haml", "handlebars", "hbs", "html", "html-eex", "heex", "jade", "leaf", "liquid", "twig", "css", "less", "postcss", "sass", "scss", "stylus", "typescriptreact", "typescript"
+          "haml", "handlebars", "hbs", "html", "html-eex", "heex", "jade", "leaf", "liquid", "twig", "css", "less", "postcss", "sass", "scss", "stylus", "typescriptreact", "typescript", "javascript", "javascriptreact"
         }
       },
       ["denols"] = {
