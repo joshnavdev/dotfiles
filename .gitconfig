@@ -5,6 +5,9 @@
 [includeIf "gitdir:~/workplace/work/"]
   path = ~/workplace/work/.gitconfig
 
+[includeIf "gitdir:~/workplace/work/disney/"]
+  path = ~/workplace/work/disney/.gitconfig
+
 [core]
 	excludesfile = ~/.gitignore
 	editor = nvim
