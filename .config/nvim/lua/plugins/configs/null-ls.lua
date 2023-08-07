@@ -1,5 +1,7 @@
+-- TODO: Make a way to find config in package.json on node env
 local eslint_filetypes = { "js", "cjs", "yaml", "yml", "json" }
 local deno_filetypes = { "json", "jsonc" }
+local stylelint_filetypes = { "", ".cjs", ".json", ".yaml", ".yml" }
 
 local get_config_files = function (filetypes, source_rc)
   local config_files = {}
@@ -63,16 +65,21 @@ return {
             condition = function (utils)
               local eslint_config_files = get_config_files(eslint_filetypes, ".eslintrc.")
               return utils.root_has_file(eslint_config_files)
-            end
+            end,
           }),
           diagnostics.jsonlint,
-          diagnostics.stylelint,
+          diagnostics.stylelint.with({
+            condition = function (utils)
+              local stylelint_config_files = get_config_files(stylelint_filetypes, ".stylelintrc")
+              return utils.root_has_file(stylelint_config_files)
+            end,
+          }),
           formatting.stylelint,
           formatting.deno_fmt.with({
             condition = function (utils)
               local deno_config_files = get_config_files(deno_filetypes, "deno.")
               return utils.root_has_file(deno_config_files)
-            end
+            end,
           })
         }
       }
