@@ -1,18 +1,22 @@
 # Set window root path. Default is `$session_root`.
 # Must be called before `new_window`.
-window_root "~/workplace/work/disney/anet-messaging-ui/"
+window_root "~/workplace/projects/github-landing/"
 
 # Create new window. If no argument is given, window name will be based on
 # layout file name.
-new_window "messaging-ui"
+new_window "github"
 run_cmd "nvm use 18"
 run_cmd "nvim"
-split_v 20
+
+split_v 30
+run_cmd "nvm use 18"
+run_cmd "yarn dev --port 3000"
+
 split_h 50
-run_cmd "npm run start:dev"
 select_pane 0
 
 # Split window into panes.
+
 #split_v 20
 #split_h 50
 
