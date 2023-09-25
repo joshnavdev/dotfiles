@@ -58,6 +58,9 @@ return {
       outgoing = ' ',
       kind = {},
     },
+    lightbulb = {
+      enable = false,
+    },
   },
   config = function (_, opts)
     -- vim.cmd[[hi! default link SagaBorder NormalFloat]]
