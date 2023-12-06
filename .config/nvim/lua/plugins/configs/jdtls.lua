@@ -11,7 +11,8 @@ return {
     local root_markers = {'gradlew', '.git'}
     local root_dir = require('jdtls.setup').find_root(root_markers)
     local project_name = vim.fn.fnamemodify(root_dir, ':p:h:t')
-    local workspace_folder = os.getenv("WORKPLACE") .. "work/disney/" .. project_name
+    -- local workspace_folder = os.getenv("WORKPLACE") .. "work/disney/" .. project_name
+    local workspace_folder = os.getenv("HOME") .. "/workspaces/eclipse/learning/"
 
     local config = {
       -- The command that starts the language server

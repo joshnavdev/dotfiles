@@ -14,6 +14,13 @@ return {
         command_palette = true,
         long_message_to_split = true,
       },
+      routes = {
+        filter = {
+          event = "notify",
+          find = "No information available",
+        },
+        opts = { skip = true },
+      },
     },
     keys = {
       {
