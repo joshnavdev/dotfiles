@@ -1,9 +1,12 @@
+-- Keymaps are automatically loaded on the VeryLazy event
+-- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
+-- Add any additional keymaps here
 vim.g.mapleader = " "
 
 local keymap = vim.keymap
 local opts = { silent = true }
 
-local mergeDesc = function (desc)
+local mergeDesc = function(desc)
   return vim.tbl_extend("force", opts, { desc = desc })
 end
 

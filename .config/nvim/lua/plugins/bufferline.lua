@@ -2,8 +2,8 @@ return {
   "akinsho/bufferline.nvim",
   event = "VeryLazy",
   keys = {
-    { "<Tab>", "<Cmd>BufferLineCycleNext<CR>", {}},
-    { "<S-Tab>", "<Cmd>BufferLineCyclePrev<CR>", {}},
+    { "<Tab>", "<Cmd>BufferLineCycleNext<CR>", {} },
+    { "<S-Tab>", "<Cmd>BufferLineCyclePrev<CR>", {} },
   },
   opts = {
     options = {
