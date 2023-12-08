@@ -13,6 +13,7 @@ return {
     local cmp = require("cmp")
     local luasnip = require("luasnip")
     local defaults = require("cmp.config.default")()
+
     return {
       completion = {
         completeopt = "menu,menuone,noinsert",
