@@ -4,6 +4,7 @@ DOTFILES="$WORKPLACE/projects/dotfiles"
 XDG_CONFIG_HOME="$DOTFILES/.config"
 ZSH_CUSTOM="$XDG_CONFIG_HOME/zsh"
 export TMUXIFIER_LAYOUT_PATH="$XDG_CONFIG_HOME/tmux/layouts"
+export NVM_LAZY_LOAD=true
 
 source $ZSH_CUSTOM/init.zsh
 source $HOME/antigen.zsh
@@ -14,6 +15,8 @@ antigen use oh-my-zsh
 antigen bundle git
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle dominik-schwabe/zsh-fnm
+
 # antigen bundle deno
 
 antigen apply
@@ -21,22 +24,20 @@ antigen apply
 # Starship
 eval "$(starship init zsh)"
 
-# NVM
-NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-# eval "$(rbenv init - zsh)"
-
-source /Users/joshua.navarro/.docker/init-zsh.sh || true # Added by Docker Desktop
+# source /Users/joshua.navarro/.docker/init-zsh.sh || true # Added by Docker Desktop
 export GOPATH=$WORKPLACE/goworkplace
 
 # JAVA Setup With MAVEN
-JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk-11.jdk/Contents/Home"
-# JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_361.jdk/Contents/Home"
+# JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk-11.jdk/Contents/Home"
+JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_361.jdk/Contents/Home"
 # JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk-20.jdk/Contents/Home"
+# JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk-1.8.jdk/Contents/Home"
 PATH="${JAVA_HOME}/bin:${PATH}"
+export JAVA_HOME
 
-export M2_HOME=/Users/joshua.navarro/apache-maven-3.9.0
+# export M2_HOME=/Users/joshua.navarro/apache-maven-3.9.0
+# export M2_HOME=/Users/joshua.navarro/Downloads/apache-maven-3.9.5
+export M2_HOME=/Users/joshua.navarro/tools/apache-maven-3.6.3
 PATH="${M2_HOME}/bin:${PATH}"
 
 # TMUX
@@ -44,6 +45,23 @@ PATH="$HOME/.tmuxifier/bin:$PATH"
 export EDITOR="nvim"
 eval "$(tmuxifier init -)"
 
+PATH="$(pyenv root)/shims:${PATH}"
+
 export PATH
 export HOMEBREW_NO_AUTO_UPDATE=1
 export WORKPLACE
+
+# bun completions
+[ -s "/Users/joshua.navarro/.bun/_bun" ] && source "/Users/joshua.navarro/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# Orbstack
+export DOCKER_HOST=unix:///Users/joshua.navarro/.orbstack/run/docker.sock
+
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+# export SDKMAN_DIR="$HOME/.sdkman"
+# [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
