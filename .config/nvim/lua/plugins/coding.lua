@@ -11,6 +11,9 @@ return {
   { "sindrets/diffview.nvim" },
   {
     "hrsh7th/nvim-cmp",
+    dependencies = {
+      "L3MON4D3/LuaSnip",
+    },
     opts = function(_, opts)
       local luasnip = require("luasnip")
       local cmp = require("cmp")
