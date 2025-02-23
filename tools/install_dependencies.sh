@@ -2,7 +2,7 @@
 echo "This is the initial installation created by JoshNavDev"
 
 function install_dependencies() {
-  declare -a basic_dependencies=(curl git vim tmux)
+  declare -a basic_dependencies=(curl git vim tmux ripgrep)
 
   install_basic_dependencies "${basic_dependencies[@]}"
   initial_config
