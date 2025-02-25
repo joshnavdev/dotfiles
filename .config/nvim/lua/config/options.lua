@@ -3,3 +3,4 @@
 -- Add any additional options here
 vim.opt.clipboard:append({ "unnamedplus" })
 vim.o.shell = "/opt/homebrew/bin/zsh"
+vim.g.lazyvim_picker = "telescope"
