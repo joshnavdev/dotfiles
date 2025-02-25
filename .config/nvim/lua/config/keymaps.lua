@@ -48,3 +48,6 @@ keymap.set("n", "<Leader>x", ":w<CR>:source %<CR>", opts)
 
 -- Plenary
 keymap.set("n", "<leader>pt", "<Plug>PlenaryTestFile")
+
+-- Delete
+keymap.del("n", ",")
