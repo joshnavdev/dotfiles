@@ -1,0 +1,60 @@
+""" Map leader to space ---------------------
+let mapleader = " "
+
+""" Plugins  --------------------------------
+set NERDTree
+" set easymotion
+set surround
+set which-key
+set multiple-cursors
+
+""" Plugin settings -------------------------
+let g:NERDTreeMapOpenSplit='i'
+let g:NERDTreeMapOpenVSplit='x'
+
+""" Common settings -------------------------
+"set rnu
+set number
+set scrolloff=5
+set showmode
+set timeoutlen=1000
+
+""" Idea specific settings ------------------
+
+""" Mappings --------------------------------
+nmap <leader>/ <Action>(TextSearchAction)
+nmap <leader>gd <Action>(GotoDeclaration)
+nmap <leader>gi <Action>(GotoImplementation)
+nmap gi <Action>(GotoImplementation)
+nmap <leader>f <Action>(SelectInProjectView)
+nmap <leader><leader> <Action>(GotoFile)
+nmap <leader>s <Action>(GoToFile)
+nmap <leader>ga <Action>(Annotate)
+nmap gr <Action>(RenameElement)
+nmap <leader>e :NERDTreeToggle<CR>
+nmap <leader>to <Action>(ActivateTerminalToolWindow)
+nmap <leader>tq <Action>(HideActiveWindow)
+nmap <leader>m <Action>(FileStructurePopup)
+nmap <leader>cc <Action>(CommentByLineComment)
+nmap // <Action>(AceAction)
+"nmap // <Action>(Find)
+"vmap // <Action>(Find)
+
+map mc <A-n>
+map mx <A-x>
+map mp <A-p>
+
+" nmap / <Plug>(easymotion-sn)
+
+nmap <C-h> <C-w>h
+nmap <C-j> <C-w>j
+nmap <C-k> <C-w>k
+nmap <C-l> <C-w>l
+
+nmap <leader>w :w<CR>
+nmap <leader>q :q<CR>
+
+nmap <leader>nd <F7>
+nmap <leader>pd <S-F7>
+
+nmap <leader>rs :source ~/.ideavimrc<CR>
