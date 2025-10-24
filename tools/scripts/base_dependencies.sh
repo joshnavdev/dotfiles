@@ -1,7 +1,12 @@
 #!/usr/bin/env bash
 
 function init_installation() {
-  sudo apt-get update
+  if is_macos; then
+    ensure_homebrew
+    brew update
+  else
+    sudo apt-get update
+  fi
 }
 
 function install_basic_dependencies() {
