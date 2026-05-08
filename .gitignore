@@ -48,3 +48,5 @@ luac.out
 !.config/tmux
 !.config/zsh
 !.config/starship.toml
+
+.idea

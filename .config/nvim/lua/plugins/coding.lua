@@ -1,13 +1,5 @@
 return {
-  {
-    "neovim/nvim-lspconfig",
-    init = function()
-      local keys = require("lazyvim.plugins.lsp.keymaps").get()
-      -- disable a keymap
-      keys[#keys + 1] = { "<leader>cc", false }
-    end,
-  },
-  { "echasnovski/mini.surround", enabled = false },
+  { "nvim-mini/mini.surround", enabled = false },
   { "sindrets/diffview.nvim" },
   -- {
   --   "hrsh7th/nvim-cmp",
@@ -41,7 +33,7 @@ return {
   --   end,
   -- },
   {
-    "echasnovski/mini.comment",
+    "nvim-mini/mini.comment",
     opts = {
       mappings = {
         comment_line = "<leader>cc",

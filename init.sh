@@ -18,4 +18,7 @@ install_and_config_nvim "0.11"
 # bash tools/config_initial_sources.sh
 # bash tools/neovim_install.sh
 
+# TODO: Add ln to .config
+# TODO: add ln to .gitconfig
+# TODO: Add brew for mac instalattion
 # zsh
