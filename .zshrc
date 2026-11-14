@@ -6,6 +6,10 @@ ZSH_CUSTOM="$XDG_CONFIG_HOME/zsh"
 export EDITOR="nvim"
 export HOMEBREW_NO_AUTO_UPDATE=1
 
+# User binaries (Claude Code, pipx, ...). zsh does not read ~/.profile, so add it here
+export PATH="$HOME/.local/bin:$PATH"
+typeset -U path PATH  # drop duplicated PATH entries
+
 source $ZSH_CUSTOM/init.zsh
 source $HOME/antigen.zsh
 
