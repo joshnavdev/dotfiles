@@ -1,1 +1,3 @@
 .vscode
+# Generated per machine by tools/optional/*.sh
+conf.d/

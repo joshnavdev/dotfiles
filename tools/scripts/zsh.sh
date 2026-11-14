@@ -1,73 +1,43 @@
-function install_zsh() {
-  echo "Check if ZSH is installed"
-  validate_command_and_print "zsh"
+#!/usr/bin/env bash
 
-  if [ $? -eq 0 ]; then
-    echo "Installing..."
-    install_dependency "zsh" --with-sudo --with-yes
+function install_zsh() {
+  if validate_command zsh; then
+    already_installed "zsh"
+  else
+    run "Installing zsh" install_dependency "zsh" --with-sudo --with-yes
   fi
 }
 
 function install_antigen() {
-  echo ""
-  echo "Check if  AntiGen is installed"
+  local antigen_file="$HOME/antigen.zsh"
 
-  ANTIGEN_FILE=$HOME/antigen.zsh
-
-  validate_command_and_print "antigen"
-  if [ $? -eq 0 ]; then
-    echo "Validate if there is a AntiGen file"
-
-    is_file "$ANTIGEN_FILE"
-    if [ $? -eq 1 ]; then
-      echo "Removing old AntiGen file"
-      rm -rf $ANTIGEN_FILE
-    fi
-
-    echo "Installing..."
-    sudo curl -L git.io/antigen > $HOME/antigen.zsh
+  if [ -s "$antigen_file" ]; then
+    already_installed "antigen"
+    return 0
   fi
+
+  run "Downloading antigen" curl -fsSL https://raw.githubusercontent.com/zsh-users/antigen/master/bin/antigen.zsh -o "$antigen_file"
 }
 
 function config_shell() {
-  echo ""
-  echo "Check SHELL config"
+  local zsh_path
+  zsh_path="$(command -v zsh)" || return 1
 
-  if [[ "$SHELL" != "/bin/zsh" ]]; then
-    echo "Update SHELL to /bin/zsh"
-    chsh -s /bin/zsh
+  if [[ "$(getent passwd "$USER" 2>/dev/null | cut -d: -f7)" == "$zsh_path" || "$SHELL" == "$zsh_path" ]]; then
+    already_installed "zsh as login shell"
   else
-    echo "SHELL is currentlly using ZSH"
+    # sudo is already cached by request_sudo, so chsh does not ask for the password
+    run "Setting zsh as login shell" sudo chsh -s "$zsh_path" "$USER"
   fi
 }
 
 function config_zsh() {
   config_shell
-
-  echo ""
-  echo "Config .zshrc file"
-  DOTFILES="$(pwd)"
-
-  touch $DOTFILES/.zshrc
-  echo "DOTFILES=$DOTFILES" >> $DOTFILES/.zshrc
-  cat $DOTFILES/tools/.zshrc.init >> $DOTFILES/.zshrc
-
-  ZSHRC_PATH=$HOME/.zshrc
-
-  is_file "$ZSHRC_PATH"
-  if [ $? -eq 1 ]; then
-    echo "$ZSHRC_PATH file exists."
-    # TODO: Ask fo update it
-  else
-    echo "Creating soft link to $ZSHRC_PATH"
-    ln -s $DOTFILES/.zshrc $ZSHRC_PATH 
-  fi
+  mkdir -p "$ZSH_CONF_D"
+  link_path "$DOTFILES/.zshrc" "$HOME/.zshrc"
 }
 
-
 function install_and_config_zsh() {
-  echo ""
-
   install_zsh
   install_antigen
   config_zsh

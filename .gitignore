@@ -42,7 +42,6 @@ luac.out
 **/.DS_Store
 
 # config
-.zshrc
 .config/*
 !.config/nvim
 !.config/tmux
