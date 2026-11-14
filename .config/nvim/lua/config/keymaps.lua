@@ -51,3 +51,6 @@ keymap.set("n", "<leader>pt", "<Plug>PlenaryTestFile")
 
 -- Delete
 keymap.del("n", ",")
+
+-- LSP: lowercase alias for Goto Implementation (LazyVim default is "gI")
+keymap.set("n", "gi", vim.lsp.buf.implementation, mergeDesc("Goto Implementation"))
