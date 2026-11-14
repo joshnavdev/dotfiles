@@ -193,6 +193,12 @@ check_optional() {
   fi
 }
 
+if [ -x "$HOME/.local/bin/claude" ] || validate_command claude; then
+  claude_out="$(in_zsh 'claude --version')"
+  if [[ -n "$claude_out" ]]; then ok "claude: $claude_out"; else fail "claude installed but not found in zsh PATH"; fi
+else
+  skip "claude not installed"
+fi
 check_optional fnm       "fnm"       'fnm --version'
 check_optional fnm       "node"      'node --version'
 check_optional zz-sdkman "java"      'java -version 2>&1 | head -n 1'

@@ -8,7 +8,7 @@ What does this project do?
 - Configures Tmux.
 - Installs and configures Neovim.
 - Creates symlinks for configuration files (.zshrc, .tmux.conf and nvim/tmux/zsh/starship.toml under ~/.config). Existing files are never overwritten silently: you choose replace / backup / skip.
-- Asks, one by one, whether to install optional tools: FNM (Node), Java (SDKMAN + Maven), Bun, Docker (Linux), OrbStack (macOS), Go, pyenv, tmuxifier. Each one writes its own zsh snippet to .config/zsh/conf.d/ (git-ignored, loaded by .zshrc).
+- Asks, one by one, whether to install optional tools: Claude Code, FNM (Node), Java (SDKMAN + Maven), Bun, Docker (Linux), OrbStack (macOS), Go, pyenv, tmuxifier. Each one writes its own zsh snippet to .config/zsh/conf.d/ (git-ignored, loaded by .zshrc).
 
 Main structure
 - init.sh: main script that orchestrates installation and configuration.
