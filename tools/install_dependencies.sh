@@ -1,15 +1,5 @@
-#!/bin/sh
-echo "This is the initial installation created by JoshNavDev"
+#!/usr/bin/env bash
 
 function install_dependencies() {
-  declare -a basic_dependencies=(curl git vim tmux ripgrep)
-
-  install_basic_dependencies "${basic_dependencies[@]}"
-  initial_config
-
-  install_and_config_zsh
-  install_and_config_starship
-  install_and_config_tmux
+  install_basic_dependencies curl git vim tmux ripgrep:rg
 }
-
-# TODO: Install neovim
