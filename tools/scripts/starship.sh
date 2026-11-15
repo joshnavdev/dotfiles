@@ -1,12 +1,10 @@
 #!/usr/bin/env bash
 
 function install_starship() {
-  echo ""
-  echo "Check if StarShip is installed"
-
-  validate_command_and_print "starship"
-  if [ $? -eq 0 ]; then
-   curl -sS https://starship.rs/install.sh | sh
+  if validate_command starship; then
+    already_installed "starship"
+  else
+    run "Installing starship" bash -c 'curl -fsSL https://starship.rs/install.sh | sh -s -- -y'
   fi
 }
 

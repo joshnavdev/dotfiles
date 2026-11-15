@@ -1,18 +1,8 @@
-require "base"
-require "highlights"
-require "globals"
+-- bootstrap lazy.nvim, LazyVim and your plugins
+P = function(v)
+  print(vim.inspect(v))
 
-if IS_MAC == 1 then
-  require "macos"
+  return v
 end
 
-if IS_WIN == 1 then
-  require "windows"
-end
-
-if IS_LIN == 1 and IS_MAC == 0 then
-  require "linux"
-end
-
-require "maps"
-require "plugins"
+require("config.lazy")

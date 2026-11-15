@@ -42,9 +42,10 @@ luac.out
 **/.DS_Store
 
 # config
-.zshrc
 .config/*
 !.config/nvim
 !.config/tmux
 !.config/zsh
 !.config/starship.toml
+
+.idea

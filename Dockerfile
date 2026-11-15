@@ -16,4 +16,3 @@ RUN echo "carlospunk" | sudo -S apt-get install git --yes >> /dev/null
 
 WORKDIR /home/myuser/dotfiles
 COPY --chown=myuser:myuser . .
-RUN rm -rf .zshrc
