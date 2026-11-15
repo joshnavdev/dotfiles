@@ -205,5 +205,32 @@ function already_installed() {
   declare -F record_result >/dev/null && record_result skip "$1"
 }
 
+# toml_set_key <file> <section> <key> <raw value>
+# Sets one key inside [section] editing only that line (Warp writes TOML 1.1 that
+# strict parsers reject, so the file is edited as text). Leaves <file>.bak.
+function toml_set_key() {
+  cp -f "$1" "$1.bak" || return 1
+  python3 - "$@" <<'PY'
+import re, sys
+path, section, key, value = sys.argv[1:5]
+text = open(path).read()
+line = f"{key} = {value}"
+header = re.search(rf"^\[{re.escape(section)}\]\n", text, re.M)
+if header is None:
+    text = text.rstrip("\n") + f"\n\n[{section}]\n{line}\n"
+else:
+    nxt = re.search(r"^\[", text[header.end():], re.M)
+    end = header.end() + (nxt.start() if nxt else len(text) - header.end())
+    body = text[header.end():end]
+    pattern = rf"^{re.escape(key)} *=.*$"
+    if re.search(pattern, body, re.M):
+        body = re.sub(pattern, lambda _: line, body, count=1, flags=re.M)
+    else:
+        body = line + "\n" + body
+    text = text[:header.end()] + body + text[end:]
+open(path, "w").write(text)
+PY
+}
+
 # shellcheck source=ui.sh
 source "$(dirname "${BASH_SOURCE[0]}")/ui.sh"
