@@ -16,15 +16,17 @@ for arg in "$@"; do
 done
 
 export DOTFILES_LOG="$HOME/.dotfiles-install.log"
-export STEP_TOTAL=8
+export STEP_TOTAL=10
 
 source tools/scripts/commons.sh
 source tools/scripts/base_dependencies.sh
 source tools/install_dependencies.sh
 source tools/scripts/zsh.sh
 source tools/scripts/starship.sh
+source tools/scripts/fonts.sh
 source tools/scripts/tmux.sh
 source tools/gitconfig.sh
+source tools/theme.sh
 source tools/neovim_install.sh
 source tools/optional/all.sh
 
@@ -46,6 +48,9 @@ install_and_config_zsh
 step "Starship" "prompt"
 install_and_config_starship
 
+step "Fonts" "Monaspace · Xenon NF in the terminal"
+install_and_config_fonts
+
 step "Tmux" "config + TPM plugins"
 install_and_config_tmux
 
@@ -54,6 +59,9 @@ install_and_config_nvim "0.11"
 
 step "Config links" "~/.config"
 bash tools/link_config.sh
+
+step "Theme" "Warp · Ptyxis · tmux · nvim"
+setup_theme
 
 step "Git" "profiles per folder"
 setup_gitconfig
@@ -70,6 +78,7 @@ echo ""
 echo "Manual steps (only if needed):"
 echo "  - IntelliJ + IdeaVim: bash tools/manual/ideavim.sh"
 echo "  - Re-run git profiles: bash tools/gitconfig.sh"
+echo "  - Change theme: bash tools/theme.sh set <name>"
 echo "  - Health check: bash tools/doctor.sh"
 echo ""
 echo "${C_BOLD}Done.${C_RESET} Open a new terminal (or run: exec zsh) to load the new config."

@@ -1,6 +1,6 @@
-# Nightfox Warp Colors
-# Style: nightfox
-# Upstream: https://github.com/edeneast/nightfox.nvim/raw/main/extra/nightfox/nightfox_warp.yaml
+# Kanagawa Wave for Warp
+# Generated from https://github.com/rebelot/kanagawa.nvim/tree/bb85e4b/extras/alacritty
+name: "Kanagawa Wave"
 accent: "#c8c093"
 background: "#1f1f28"
 foreground: "#dcd7ba"
